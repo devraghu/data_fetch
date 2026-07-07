@@ -16,9 +16,9 @@ from am_downloader.mirror import AmMirror
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Mirror AM data into publish/latest")
+    parser = argparse.ArgumentParser(description="Mirror AM data into publish/arthikamf/am/latest")
     parser.add_argument("--report-date", help="AM report date like 02-Jul-2026")
-    parser.add_argument("--output", default="publish/latest", help="Output directory")
+    parser.add_argument("--output", default="publish/arthikamf/am/latest", help="Output directory")
     parser.add_argument("--raw-only", action="store_true", help="Mirror raw files only")
     args = parser.parse_args()
 

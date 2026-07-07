@@ -1,0 +1,101 @@
+name: Mirror ArthikaMF AM Data
+
+on:
+  workflow_dispatch:
+    inputs:
+      report_date:
+        description: "AM report date, e.g. 02-Jul-2026"
+        required: false
+        type: string
+  schedule:
+    - cron: "30 11 * * *"
+    - cron: "45 13 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: arthikamf-am-mirror
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Mirror AM data
+        env:
+          AM_REPORT_DATE: ${{ github.event.inputs.report_date }}
+        run: |
+          if [ -n "$AM_REPORT_DATE" ]; then
+            python scripts/am_mirror.py --report-date "$AM_REPORT_DATE" --output publish/arthikamf/am/latest --raw-only
+          else
+            python scripts/am_mirror.py --output publish/arthikamf/am/latest --raw-only
+          fi
+
+      - name: Validate raw AM mirror
+        run: |
+          python scripts/am_validate.py --input publish/arthikamf/am/latest --raw-only
+
+      - name: Merge prior archive and prune retention
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TMP_DIR="$(mktemp -d)"
+          git clone --depth 1 --branch data "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$TMP_DIR" || true
+          mkdir -p publish/arthikamf/am/archive
+          if [ -d "$TMP_DIR/arthikamf/am/archive" ]; then
+            cp -R "$TMP_DIR/arthikamf/am/archive/." publish/arthikamf/am/archive/ || true
+          fi
+          SNAPSHOT_DATE="$(date -u +%F)"
+          rm -rf "publish/arthikamf/am/archive/$SNAPSHOT_DATE"
+          cp -R publish/arthikamf/am/latest "publish/arthikamf/am/archive/$SNAPSHOT_DATE"
+          python - <<'PY'
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
+archive = Path('publish/arthikamf/am/archive')
+cutoff = (datetime.now(timezone.utc) - timedelta(days=7)).date()
+for path in archive.iterdir():
+    if not path.is_dir():
+        continue
+    try:
+        day = datetime.strptime(path.name, '%Y-%m-%d').date()
+    except ValueError:
+        continue
+    if day < cutoff:
+        for child in sorted(path.rglob('*'), reverse=True):
+            if child.is_file() or child.is_symlink():
+                child.unlink(missing_ok=True)
+            elif child.is_dir():
+                child.rmdir()
+        path.rmdir()
+PY
+
+      - name: Publish latest data branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd publish
+          git init
+          git checkout -b data
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Update arthikamf AM mirror $(date -u +%F-%H%M)" || echo "No changes"
+          git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push --force origin data

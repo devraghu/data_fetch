@@ -1,4 +1,4 @@
-name: Discover AM Requests
+name: Discover ArthikaMF AM Requests
 
 on:
   workflow_dispatch:
@@ -32,8 +32,8 @@ jobs:
       - name: Upload discovery artifact
         uses: actions/upload-artifact@v4
         with:
-          name: am-discovery
-          path: publish/discovery
+          name: arthikamf-am-discovery
+          path: publish/arthikamf/am/discovery
 
       - name: Publish discovery to data branch
         env:
@@ -45,6 +45,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add discovery
-          git commit -m "AM discovery $(date -u +%F-%H%M)" || echo "No changes"
+          git commit -m "ArthikaMF AM discovery $(date -u +%F-%H%M)" || echo "No changes"
           git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git push --force origin data

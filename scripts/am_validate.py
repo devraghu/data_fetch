@@ -25,7 +25,7 @@ def _require_json(path: Path, errors: list[str], message: str) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Validate mirrored AM output")
-    parser.add_argument("--input", required=True, help="publish/latest directory")
+    parser.add_argument("--input", required=True, help="publish/arthikamf/am/latest directory")
     parser.add_argument(
         "--raw-only",
         action="store_true",

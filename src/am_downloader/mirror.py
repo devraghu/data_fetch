@@ -92,6 +92,12 @@ class AmMirror:
             headers["Referer"] = referer
         return headers
 
+    def _publish_root(self) -> Path:
+        for candidate in [self.settings.output_dir, *self.settings.output_dir.parents]:
+            if candidate.name == "publish":
+                return candidate
+        return self.settings.output_dir.parents[2]
+
     def _record_result(
         self,
         *,
@@ -108,7 +114,7 @@ class AmMirror:
             "status_code": result.status_code,
             "content_type": result.content_type,
             "bytes": len(result.body),
-            "saved_path": str(path.relative_to(self.settings.output_dir.parent.parent)) if path.exists() else None,
+            "saved_path": str(path.relative_to(self._publish_root())) if path.exists() else None,
             "sha256": sha256_bytes(result.body) if result.body else None,
             "error": result.error,
         }
@@ -116,7 +122,7 @@ class AmMirror:
         if result.ok and result.body:
             ensure_dir(path.parent)
             path.write_bytes(result.body)
-            source["saved_path"] = str(path.relative_to(self.settings.output_dir.parent.parent))
+            source["saved_path"] = str(path.relative_to(self._publish_root()))
         elif required:
             metadata["errors"].append(f"{key} download failed: {result.error or result.status_code}")
         else:

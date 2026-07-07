@@ -10,7 +10,7 @@ from urllib.parse import urlparse
 from playwright.async_api import async_playwright
 
 
-OUT = Path("publish/discovery")
+OUT = Path("publish/arthikamf/am/discovery")
 OUT.mkdir(parents=True, exist_ok=True)
 
 PAGES = [
