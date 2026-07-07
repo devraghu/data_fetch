@@ -65,25 +65,25 @@ jobs:
           rm -rf "publish/arthikamf/am/archive/$SNAPSHOT_DATE"
           cp -R publish/arthikamf/am/latest "publish/arthikamf/am/archive/$SNAPSHOT_DATE"
           python - <<'PY'
-from datetime import datetime, timedelta, timezone
-from pathlib import Path
+          from datetime import datetime, timedelta, timezone
+          from pathlib import Path
 
-archive = Path('publish/arthikamf/am/archive')
-cutoff = (datetime.now(timezone.utc) - timedelta(days=7)).date()
-for path in archive.iterdir():
-    if not path.is_dir():
-        continue
-    try:
-        day = datetime.strptime(path.name, '%Y-%m-%d').date()
-    except ValueError:
-        continue
-    if day < cutoff:
-        for child in sorted(path.rglob('*'), reverse=True):
-            if child.is_file() or child.is_symlink():
-                child.unlink(missing_ok=True)
-            elif child.is_dir():
-                child.rmdir()
-        path.rmdir()
+          archive = Path('publish/arthikamf/am/archive')
+          cutoff = (datetime.now(timezone.utc) - timedelta(days=7)).date()
+          for path in archive.iterdir():
+              if not path.is_dir():
+                  continue
+              try:
+                  day = datetime.strptime(path.name, '%Y-%m-%d').date()
+              except ValueError:
+                  continue
+              if day < cutoff:
+                  for child in sorted(path.rglob('*'), reverse=True):
+                      if child.is_file() or child.is_symlink():
+                          child.unlink(missing_ok=True)
+                      elif child.is_dir():
+                          child.rmdir()
+                  path.rmdir()
 PY
 
       - name: Publish latest data branch
