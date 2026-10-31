@@ -1,0 +1,289 @@
+{
+  "fetched_at_utc": "2026-10-30T18:52:46+00:00",
+  "report_date": "30-Oct-2026",
+  "runner": "github-actions",
+  "sources": {
+    "navall": {
+      "url": "https://www.amfiindia.com/spages/NAVAll.txt",
+      "final_url": "https://portal.amfiindia.com/spages/NAVAll.txt",
+      "status_code": 200,
+      "content_type": "text/plain",
+      "bytes": 1528612,
+      "saved_path": "arthikamf/am/latest/raw/NAVAll.txt",
+      "sha256": "48b8c58e8cf14752f11780e061ed3afc3938b23a20307bc81f2f2f92c7041d24",
+      "error": null
+    },
+    "aum_average_aum": {
+      "url": "https://www.amfiindia.com/aum-data/average-aum",
+      "final_url": "https://www.amfiindia.com/aum-data/average-aum",
+      "status_code": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 283740,
+      "saved_path": "arthikamf/am/latest/raw/aum_average_aum.html",
+      "sha256": "20cd9afba979637e9b59f20467e9ca3fa8c8c2477449eea5f2262d60d607a7a3",
+      "error": null
+    },
+    "benchmark_xlsx": {
+      "url": "https://www.amfiindia.com/Themes/Theme1/downloads/ListofTier1_Benchmark.xlsx",
+      "final_url": "https://www.amfiindia.com/Themes/Theme1/downloads/ListofTier1_Benchmark.xlsx",
+      "status_code": 200,
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "bytes": 23485,
+      "saved_path": "arthikamf/am/latest/raw/benchmark_tier1.xlsx",
+      "sha256": "a6b20261f1b29d738ebd9ec623153ca4c18709fadd6fcc447e982a231c65d45c",
+      "error": null
+    },
+    "benchmark_default": {
+      "url": "https://www.amfiindia.com/otherdata/listofbenchmarkindices",
+      "final_url": "https://www.amfiindia.com/otherdata/listofbenchmarkindices",
+      "status_code": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 200425,
+      "saved_path": "arthikamf/am/latest/raw/benchmark_default.html",
+      "sha256": "9e5cf7326e18a177377eb9f765178f443cc9e99332daf225cbea7665f31a90af",
+      "error": null
+    },
+    "benchmark_debt": {
+      "url": "https://www.amfiindia.com/otherdata/listofbenchmarkindices?tab=debtSchemes",
+      "final_url": "https://www.amfiindia.com/otherdata/listofbenchmarkindices?tab=debtSchemes",
+      "status_code": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 200475,
+      "saved_path": "arthikamf/am/latest/raw/benchmark_debt.html",
+      "sha256": "174c5d1de172cd4205163df3b8730747ded24728329c73b1e7bf96848eb6209e",
+      "error": null
+    },
+    "benchmark_equity": {
+      "url": "https://www.amfiindia.com/otherdata/listofbenchmarkindices?tab=equitySchemes",
+      "final_url": "https://www.amfiindia.com/otherdata/listofbenchmarkindices?tab=equitySchemes",
+      "status_code": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 200479,
+      "saved_path": "arthikamf/am/latest/raw/benchmark_equity.html",
+      "sha256": "be014921ccbf67c318478ee7cc6e59fad549364b5faf609cf79762375e721006",
+      "error": null
+    },
+    "benchmark_equity_sectoral": {
+      "url": "https://www.amfiindia.com/otherdata/listofbenchmarkindices?tab=equitySectoral",
+      "final_url": "https://www.amfiindia.com/otherdata/listofbenchmarkindices?tab=equitySectoral",
+      "status_code": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 200481,
+      "saved_path": "arthikamf/am/latest/raw/benchmark_equity_sectoral.html",
+      "sha256": "59fea15e91a675e967eb9c5fbb56faf82340ae3a198b1159683c02d4fa0edfec",
+      "error": null
+    },
+    "benchmark_equity_thematic": {
+      "url": "https://www.amfiindia.com/otherdata/listofbenchmarkindices?tab=equityThematic",
+      "final_url": "https://www.amfiindia.com/otherdata/listofbenchmarkindices?tab=equityThematic",
+      "status_code": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 200481,
+      "saved_path": "arthikamf/am/latest/raw/benchmark_equity_thematic.html",
+      "sha256": "1a6181b63ba890d45014e703e453354ce387719e614d1c30bb89d13f88dcebf9",
+      "error": null
+    },
+    "benchmark_hybrid": {
+      "url": "https://www.amfiindia.com/otherdata/listofbenchmarkindices?tab=hybridSchemes",
+      "final_url": "https://www.amfiindia.com/otherdata/listofbenchmarkindices?tab=hybridSchemes",
+      "status_code": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 200479,
+      "saved_path": "arthikamf/am/latest/raw/benchmark_hybrid.html",
+      "sha256": "2173adf33025f64b923f7e51df2328402e2ccfe2d583c0b36e396a3f17f584e1",
+      "error": null
+    },
+    "benchmark_solution": {
+      "url": "https://www.amfiindia.com/otherdata/listofbenchmarkindices?tab=solutionOriented",
+      "final_url": "https://www.amfiindia.com/otherdata/listofbenchmarkindices?tab=solutionOriented",
+      "status_code": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 200485,
+      "saved_path": "arthikamf/am/latest/raw/benchmark_solution.html",
+      "sha256": "508baec8a949a8cbf073ef8c318b968a6f72c8fcd4bb56063e8521238e5e1211",
+      "error": null
+    },
+    "amc_members": {
+      "url": "https://www.amfiindia.com/aboutamfi?tab=members",
+      "final_url": "https://www.amfiindia.com/aboutamfi?tab=members",
+      "status_code": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 350153,
+      "saved_path": "arthikamf/am/latest/raw/amc_members.html",
+      "sha256": "b447d6b08f738e9cfee1005f4bdbf338e3549fcf75daf47077be9e4dfdd10881",
+      "error": null
+    },
+    "fund_performance_filters": {
+      "url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformancefilters",
+      "final_url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformancefilters",
+      "status_code": 200,
+      "content_type": "application/json",
+      "bytes": 2611,
+      "saved_path": "arthikamf/am/latest/fund_performance/filters.json",
+      "sha256": "23e7e47a9ab4616e21b1f36297d71d4eaa9d2ff0c1c984f021a13a90fde402f1",
+      "error": null
+    },
+    "fund_performance_is_holiday": {
+      "url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/isHoliday",
+      "final_url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/isHoliday",
+      "status_code": 200,
+      "content_type": "application/json",
+      "bytes": 84,
+      "saved_path": "arthikamf/am/latest/fund_performance/isHoliday.json",
+      "sha256": "a1827880ce237bc986f6af64f94056c4bf3637f4d297856ac5ef17519d903127",
+      "error": null
+    },
+    "fund_performance_subcategory_1": {
+      "url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/getsubcategory",
+      "final_url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/getsubcategory",
+      "status_code": 200,
+      "content_type": "application/json",
+      "bytes": 480,
+      "saved_path": "arthikamf/am/latest/fund_performance/subcategories/category_1.json",
+      "sha256": "c9a187558b6e3c008b0774fc119483c612ae3e1455fe60204aa6b6156420efab",
+      "error": null
+    },
+    "fund_performance_maturity_1_category_1_subcategory_1_mfid_0": {
+      "url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "final_url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "status_code": 200,
+      "content_type": "application/json",
+      "bytes": 81,
+      "saved_path": "arthikamf/am/latest/fund_performance/data/maturity_1_category_1_subcategory_1_mfid_0.json",
+      "sha256": "a1c00d0752481657b86f520170fadd598b88464d9787fae38f528d5131f02b65",
+      "error": null
+    },
+    "fund_performance_maturity_1_category_1_subcategory_2_mfid_0": {
+      "url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "final_url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "status_code": 200,
+      "content_type": "application/json",
+      "bytes": 81,
+      "saved_path": "arthikamf/am/latest/fund_performance/data/maturity_1_category_1_subcategory_2_mfid_0.json",
+      "sha256": "a1c00d0752481657b86f520170fadd598b88464d9787fae38f528d5131f02b65",
+      "error": null
+    },
+    "fund_performance_maturity_1_category_1_subcategory_3_mfid_0": {
+      "url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "final_url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "status_code": 200,
+      "content_type": "application/json",
+      "bytes": 81,
+      "saved_path": "arthikamf/am/latest/fund_performance/data/maturity_1_category_1_subcategory_3_mfid_0.json",
+      "sha256": "a1c00d0752481657b86f520170fadd598b88464d9787fae38f528d5131f02b65",
+      "error": null
+    },
+    "fund_performance_maturity_1_category_1_subcategory_4_mfid_0": {
+      "url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "final_url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "status_code": 200,
+      "content_type": "application/json",
+      "bytes": 81,
+      "saved_path": "arthikamf/am/latest/fund_performance/data/maturity_1_category_1_subcategory_4_mfid_0.json",
+      "sha256": "a1c00d0752481657b86f520170fadd598b88464d9787fae38f528d5131f02b65",
+      "error": null
+    },
+    "fund_performance_maturity_1_category_1_subcategory_5_mfid_0": {
+      "url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "final_url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "status_code": 200,
+      "content_type": "application/json",
+      "bytes": 81,
+      "saved_path": "arthikamf/am/latest/fund_performance/data/maturity_1_category_1_subcategory_5_mfid_0.json",
+      "sha256": "a1c00d0752481657b86f520170fadd598b88464d9787fae38f528d5131f02b65",
+      "error": null
+    },
+    "fund_performance_maturity_1_category_1_subcategory_6_mfid_0": {
+      "url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "final_url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "status_code": 200,
+      "content_type": "application/json",
+      "bytes": 81,
+      "saved_path": "arthikamf/am/latest/fund_performance/data/maturity_1_category_1_subcategory_6_mfid_0.json",
+      "sha256": "a1c00d0752481657b86f520170fadd598b88464d9787fae38f528d5131f02b65",
+      "error": null
+    },
+    "fund_performance_maturity_1_category_1_subcategory_7_mfid_0": {
+      "url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "final_url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "status_code": 200,
+      "content_type": "application/json",
+      "bytes": 81,
+      "saved_path": "arthikamf/am/latest/fund_performance/data/maturity_1_category_1_subcategory_7_mfid_0.json",
+      "sha256": "a1c00d0752481657b86f520170fadd598b88464d9787fae38f528d5131f02b65",
+      "error": null
+    },
+    "fund_performance_maturity_1_category_1_subcategory_8_mfid_0": {
+      "url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "final_url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "status_code": 200,
+      "content_type": "application/json",
+      "bytes": 81,
+      "saved_path": "arthikamf/am/latest/fund_performance/data/maturity_1_category_1_subcategory_8_mfid_0.json",
+      "sha256": "a1c00d0752481657b86f520170fadd598b88464d9787fae38f528d5131f02b65",
+      "error": null
+    },
+    "fund_performance_maturity_1_category_1_subcategory_9_mfid_0": {
+      "url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "final_url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "status_code": 200,
+      "content_type": "application/json",
+      "bytes": 81,
+      "saved_path": "arthikamf/am/latest/fund_performance/data/maturity_1_category_1_subcategory_9_mfid_0.json",
+      "sha256": "a1c00d0752481657b86f520170fadd598b88464d9787fae38f528d5131f02b65",
+      "error": null
+    },
+    "fund_performance_maturity_1_category_1_subcategory_10_mfid_0": {
+      "url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "final_url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "status_code": 200,
+      "content_type": "application/json",
+      "bytes": 81,
+      "saved_path": "arthikamf/am/latest/fund_performance/data/maturity_1_category_1_subcategory_10_mfid_0.json",
+      "sha256": "a1c00d0752481657b86f520170fadd598b88464d9787fae38f528d5131f02b65",
+      "error": null
+    },
+    "fund_performance_maturity_1_category_1_subcategory_11_mfid_0": {
+      "url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "final_url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "status_code": 200,
+      "content_type": "application/json",
+      "bytes": 81,
+      "saved_path": "arthikamf/am/latest/fund_performance/data/maturity_1_category_1_subcategory_11_mfid_0.json",
+      "sha256": "a1c00d0752481657b86f520170fadd598b88464d9787fae38f528d5131f02b65",
+      "error": null
+    },
+    "fund_performance_maturity_1_category_1_subcategory_12_mfid_0": {
+      "url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "final_url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "status_code": 200,
+      "content_type": "application/json",
+      "bytes": 81,
+      "saved_path": "arthikamf/am/latest/fund_performance/data/maturity_1_category_1_subcategory_12_mfid_0.json",
+      "sha256": "a1c00d0752481657b86f520170fadd598b88464d9787fae38f528d5131f02b65",
+      "error": null
+    },
+    "fund_performance_maturity_1_category_1_subcategory_44_mfid_0": {
+      "url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "final_url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "status_code": 200,
+      "content_type": "application/json",
+      "bytes": 81,
+      "saved_path": "arthikamf/am/latest/fund_performance/data/maturity_1_category_1_subcategory_44_mfid_0.json",
+      "sha256": "a1c00d0752481657b86f520170fadd598b88464d9787fae38f528d5131f02b65",
+      "error": null
+    },
+    "fund_performance_maturity_1_category_1_subcategory_45_mfid_0": {
+      "url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "final_url": "https://www.amfiindia.com/gateway/pollingsebi/api/amfi/fundperformance",
+      "status_code": 200,
+      "content_type": "application/json",
+      "bytes": 81,
+      "saved_path": "arthikamf/am/latest/fund_performance/data/maturity_1_category_1_subcategory_45_mfid_0.json",
+      "sha256": "a1c00d0752481657b86f520170fadd598b88464d9787fae38f528d5131f02b65",
+      "error": null
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
