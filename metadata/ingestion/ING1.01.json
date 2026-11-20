@@ -67,12 +67,29 @@
     {"url": "https://www.tigzig.com/apis/mf-nav", "checked_at_utc": "2026-11-20T09:37:21.484343+00:00", "content_type": "text/html; charset=utf-8", "sample_sha256": "620c7b3f483b847984c830032494eeea278c27adf183e0322238903d78a9ae74"}
   ],
   "remaining": [
-    "Complete per-dataset endpoints/schema/units/terms/access and publication dispositions",
-    "Authorized GitHub-runner/DPROD source probes; local Mac samples cannot replace these",
+    "Resolve declared exact-report/schema/terms blockers in private ArthikaMF's canonical 30-row source audit; no permission inferred from public reachability",
+    "Host-specific dataset/schema checks beyond initial bounded samples; production commands are forbidden by operator",
     "Historical ceased-instrument and terminal-event source evidence",
     "Free-resource settings and actual deployed launch commands",
-    "Complete name-only configuration inventory",
-    "Denied-response/malformed-200 acceptance tests"
+    "Confirmed deployed launch commands are operator-owned; dynamic typed settings migration is deferred to ING1.03A; 155-name static inventory kept private"
   ],
-  "side_effects": "Read-only network requests plus local documentation/metadata edits only; no public upload, workflow dispatch, schedule/configuration mutation, installation or database connection"
+  "initial_pass_side_effects": "Read-only network requests plus local documentation/metadata edits only; no public upload, workflow dispatch, schedule/configuration mutation, installation or database connection",
+  "continuation": {
+    "authorization": "Operator permits public audit workflow creation/push/manual dispatch on development machine and GitHub runners; production commands forbidden",
+    "audit_commit": "6cd8c2d7d3728afe47ac43f0981cdf545b014ea2",
+    "github_run": "https://github.com/devraghu/data_fetch/actions/runs/44717385649",
+    "result": "Audit completed successfully; individual failed sources remain failed, not dataset success",
+    "reports": ["ING1.01-local.json", "ING1.01-github.json"],
+    "offline_tests": "25 collector tests passed, including 17 probe cases for denied/malformed-200, bounded reads and transport redaction",
+    "workflow": "Manual-only, public ubuntu-latest, contents:read, pinned checkout, no credentials persisted, no raw provider payload uploads",
+    "schedule_changes": false,
+    "scope_warning": "Audit metadata only; no canonical schema, ingestion, package or publication contracts implemented",
+    "fred_terms_review": {
+      "url": "https://fred.stlouisfed.org/legal",
+      "retrieval_route": "web-fetch integration, not local/GitHub-runner probe",
+      "publication_disposition": "restricted",
+      "finding": "Third-party permissions and database/cache/archive/AI-use provisions require review for the intended persisted-data design; no series permission established or observations imported",
+      "review_date": "2026-11-20"
+    }
+  }
 }
