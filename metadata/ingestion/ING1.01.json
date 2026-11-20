@@ -1,0 +1,78 @@
+{
+  "audit_format_version": 1,
+  "storage_note": "Tracked metadata; existing repository docs/ ignore policy is unchanged",
+  "step": "ING1.01",
+  "status": "partial",
+  "checked_date_utc": "2026-11-20",
+  "host": "local development Mac; NOT DPROD or GitHub runner",
+  "authentication": "none",
+  "collector_checkout_commit": "38996edf052d4b9cf1c9a734251175f0e5c0cab5",
+  "historical_review_commit": "6ce5d698011faeb65e2f0260d1f62bc9f801b1e8",
+  "repository_probe_policy": "HTTPS GET; 20 second timeout; 65536-byte limit; all six responses HTTP 200, complete",
+  "repository_probes": [
+    {
+      "url": "https://api.github.com/repos/devraghu/data_fetch",
+      "checked_at_utc": "2026-11-20T09:36:29.060205+00:00",
+      "bytes": 5060,
+      "sha256": "07a827e79e168633a019c3aa7a8a400bac22745daac3fcd9547b4bcf74ccff44",
+      "finding": "Public; default branch main"
+    },
+    {
+      "url": "https://api.github.com/repos/devraghu/data_fetch/actions/workflows",
+      "checked_at_utc": "2026-11-20T09:36:29.356563+00:00",
+      "bytes": 1095,
+      "sha256": "b377a027f3970ad8406cc00917fc5476bdeb0bfa20b996217156bc3abd9c93fb",
+      "finding": "arthikamf-am-discovery.yml and arthikamf-am-mirror.yml active; not proof of successful/current source acquisition"
+    },
+    {
+      "url": "https://api.github.com/repos/devraghu/indian-market-historical-data",
+      "checked_at_utc": "2026-11-20T09:36:29.605232+00:00",
+      "bytes": 19110,
+      "sha256": "702a046d50dd866a950b1687b1786fb41a37032d357e310b6019fdb70334dafd",
+      "finding": "Public fork; default branch main"
+    },
+    {
+      "url": "https://api.github.com/repos/devraghu/indian-market-historical-data/actions/workflows",
+      "checked_at_utc": "2026-11-20T09:36:30.083448+00:00",
+      "bytes": 32,
+      "sha256": "51da78a4f28ec83978198558b5be95ebec25c44ab19561c168a975e203f0a785",
+      "finding": "Zero workflows listed; account-level Actions settings not established"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/devraghu/indian-market-historical-data/6ce5d698011faeb65e2f0260d1f62bc9f801b1e8/LICENSE",
+      "checked_at_utc": "2026-11-20T09:36:30.333762+00:00",
+      "bytes": 2668,
+      "sha256": "16fdabca5e1adbe6ec075e951f4cb08cb660ba6f8661aabfb3412d37d5ada1da",
+      "finding": "NON-COMMERCIAL RESEARCH AND PERSONAL USE LICENSE; retain attribution/license/disclaimers; commercial use requires written permission",
+      "publication_disposition": "restricted",
+      "remaining": "Underlying provider rights and proposed republication scope unverified"
+    },
+    {
+      "url": "https://api.github.com/repos/devraghu/indian-market-historical-data/contents/.github/workflows?ref=6ce5d698011faeb65e2f0260d1f62bc9f801b1e8",
+      "checked_at_utc": "2026-11-20T09:36:30.626192+00:00",
+      "bytes": 11429,
+      "sha256": "9bc5a3f19307579e2133a00c08687b236e35503efeb1a9fa761fba2d2fc0f9ab",
+      "finding": "Nine inherited daily workflow files: commodities, corporate_actions, flows, indices, macro, mf, sgb, stocks, unlisted. File presence is not activation; unlisted remains outside ArthikaMF scope"
+    }
+  ],
+  "provider_probe_policy": "HTTPS GET; 12 second timeout; read at most 8193 bytes, hash first 8192. All eight responses HTTP 200 and truncated. No schema, freshness, complete coverage or redistribution permission verified; no raw financial samples published",
+  "provider_probes": [
+    {"url": "https://portal.amfiindia.com/spages/NAVAll.txt", "checked_at_utc": "2026-11-20T09:37:12.866106+00:00", "content_type": "text/plain", "sample_sha256": "be7226db1ab75f347b1862dc36fa07d33197e82dd314c0d4200333a788d1c9a8"},
+    {"url": "https://api.mfapi.in/mf/100027", "checked_at_utc": "2026-11-20T09:37:14.405107+00:00", "content_type": "application/json", "sample_sha256": "c3a977333893f2de695bb385189e00a9dacff6a4e53228ab8c45ffe5b9a26fe7"},
+    {"url": "https://www.nseindia.com/all-reports", "checked_at_utc": "2026-11-20T09:37:15.009649+00:00", "content_type": "text/html; charset=utf-8", "sample_sha256": "f68b6f05d64d4583aeb724825690c581490485a94f1019d1df7ace066aa36dad"},
+    {"url": "https://www.bseindia.com/markets/MarketInfo/BhavCopy.aspx", "checked_at_utc": "2026-11-20T09:37:15.991411+00:00", "content_type": "text/html", "sample_sha256": "aa7a146072376d5bbe833d3ec801cea938e3c9d5ccb517b6aed5eb8a0668e409"},
+    {"url": "https://www.niftyindices.com/reports/historical-data", "checked_at_utc": "2026-11-20T09:37:16.796199+00:00", "content_type": "text/html; charset=utf-8", "sample_sha256": "01d0afcafb2e2b615600ec71b6df6fc11a200841acf74401bab9cc347ab14db3"},
+    {"url": "https://data.rbi.org.in", "checked_at_utc": "2026-11-20T09:37:17.077237+00:00", "content_type": "text/html; charset=UTF-8", "sample_sha256": "7767316325852952411efc12b6f12c27316a7a701b8a9d609bc3fc7fa2fc196f"},
+    {"url": "https://www.fpi.nsdl.co.in", "checked_at_utc": "2026-11-20T09:37:17.901125+00:00", "content_type": "text/html; charset=utf-8", "sample_sha256": "511424e927044d7381235685d8e2d9a227f7ff5cc116bb7917fbb8a5b0dc420e"},
+    {"url": "https://www.tigzig.com/apis/mf-nav", "checked_at_utc": "2026-11-20T09:37:21.484343+00:00", "content_type": "text/html; charset=utf-8", "sample_sha256": "620c7b3f483b847984c830032494eeea278c27adf183e0322238903d78a9ae74"}
+  ],
+  "remaining": [
+    "Complete per-dataset endpoints/schema/units/terms/access and publication dispositions",
+    "Authorized GitHub-runner/DPROD source probes; local Mac samples cannot replace these",
+    "Historical ceased-instrument and terminal-event source evidence",
+    "Free-resource settings and actual deployed launch commands",
+    "Complete name-only configuration inventory",
+    "Denied-response/malformed-200 acceptance tests"
+  ],
+  "side_effects": "Read-only network requests plus local documentation/metadata edits only; no public upload, workflow dispatch, schedule/configuration mutation, installation or database connection"
+}

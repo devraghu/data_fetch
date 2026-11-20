@@ -1,0 +1,18 @@
+name: ING1.01 bounded access audit
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ing1-access-audit
+  cancel-in-progress: false
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Probe fixed public targets without private credentials
+        run: python3 scripts/ing1_access_probe.py --host-label github-runner

@@ -1,0 +1,262 @@
+{
+  "audit_format_version": 1,
+  "storage_note": "Tracked public-safe metadata; no raw provider payloads",
+  "step": "ING1.01",
+  "host": "local-development",
+  "github_run_id": null,
+  "github_commit": null,
+  "limit_bytes_per_response": 16384,
+  "timeout_seconds": 12,
+  "workers": 4,
+  "permission": "unknown; no payload publication authorized",
+  "caveat": "Reachability/shape only; not freshness, complete schema, coverage or rights verification. Failed targets do not cancel others. No raw payloads retained.",
+  "observations": [
+    {
+      "target": "amfi_nav",
+      "url": "https://portal.amfiindia.com/spages/NAVAll.txt",
+      "expected_kind": "nav",
+      "checked_at_utc": "2026-11-20T10:11:40.569887+00:00",
+      "http_status": 200,
+      "content_type": "text/plain",
+      "sample_bytes": 16384,
+      "sample_truncated": true,
+      "sample_sha256": "0efac27ab70baed74a0d6f5d0d05f1c694f3c7fd7a59c642f7c949866a61ce35",
+      "classification": "nav_header_sample_only"
+    },
+    {
+      "target": "mfapi_history",
+      "url": "https://api.mfapi.in/mf/100027",
+      "expected_kind": "json",
+      "checked_at_utc": "2026-11-20T10:11:40.570648+00:00",
+      "http_status": 200,
+      "content_type": "application/json",
+      "sample_bytes": 16384,
+      "sample_truncated": true,
+      "sample_sha256": "a08421a09505df975465fcfe95fc9713c24df297142a838dba7883158556e5dd",
+      "classification": "truncated_sample_unvalidated"
+    },
+    {
+      "target": "amfi_aum_page",
+      "url": "https://www.amfiindia.com/aum-data/average-aum",
+      "expected_kind": "html",
+      "checked_at_utc": "2026-11-20T10:11:40.570924+00:00",
+      "classification": "transport_error"
+    },
+    {
+      "target": "amfi_benchmark_page",
+      "url": "https://www.amfiindia.com/otherdata/listofbenchmarkindices",
+      "expected_kind": "html",
+      "checked_at_utc": "2026-11-20T10:11:40.571126+00:00",
+      "classification": "transport_error"
+    },
+    {
+      "target": "amfi_amc_page",
+      "url": "https://www.amfiindia.com/aboutamfi?tab=members",
+      "expected_kind": "html",
+      "checked_at_utc": "2026-11-20T10:11:41.173404+00:00",
+      "classification": "transport_error"
+    },
+    {
+      "target": "amfi_historical_page",
+      "url": "https://www.amfiindia.com/net-asset-value/nav-download",
+      "expected_kind": "html",
+      "checked_at_utc": "2026-11-20T10:11:41.271605+00:00",
+      "classification": "transport_error"
+    },
+    {
+      "target": "tigzig_archive_page",
+      "url": "https://www.tigzig.com/apis/mf-nav",
+      "expected_kind": "html",
+      "checked_at_utc": "2026-11-20T10:11:52.931610+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "sample_bytes": 16384,
+      "sample_truncated": true,
+      "sample_sha256": "b8710e1c63d94e47d6215a76d3cde87ce6e378becf58c7733884e4930be99616",
+      "classification": "landing_page_only_not_dataset"
+    },
+    {
+      "target": "nse_reports_page",
+      "url": "https://www.nseindia.com/all-reports",
+      "expected_kind": "html",
+      "checked_at_utc": "2026-11-20T10:11:52.932101+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "sample_bytes": 16384,
+      "sample_truncated": true,
+      "sample_sha256": "fe14c1287f037f08cec4e1287994fc2d34a7bd0cf15128e96188d34fda80089e",
+      "classification": "landing_page_only_not_dataset"
+    },
+    {
+      "target": "nse_actions",
+      "url": "https://www.nseindia.com/api/corporates-corporateActions",
+      "expected_kind": "json",
+      "checked_at_utc": "2026-11-20T10:11:53.178760+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "sample_bytes": 13,
+      "sample_truncated": false,
+      "sample_sha256": "c0ddd09f7b9ebbe309bc4e518e1aad4479cbbc1eb792cac263b398e11a85af5a",
+      "classification": "malformed_200"
+    },
+    {
+      "target": "nse_cash_flows",
+      "url": "https://www.nseindia.com/api/fiidiiTradeReact",
+      "expected_kind": "json",
+      "checked_at_utc": "2026-11-20T10:11:53.275555+00:00",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sample_bytes": 217,
+      "sample_truncated": false,
+      "sample_sha256": "9c27e9983f53b91513becf029e460930a963a81042bc9ba412b49abd5dfe495d",
+      "classification": "json_shape_only"
+    },
+    {
+      "target": "bse_reports_page",
+      "url": "https://www.bseindia.com/markets/MarketInfo/BhavCopy.aspx",
+      "expected_kind": "html",
+      "checked_at_utc": "2026-11-20T10:11:53.395100+00:00",
+      "http_status": 200,
+      "content_type": "text/html",
+      "sample_bytes": 16384,
+      "sample_truncated": true,
+      "sample_sha256": "8443176ba8a84c29d526d607c4657c09e999469ca8bdb5b1c6507e3fa8da65dd",
+      "classification": "landing_page_only_not_dataset"
+    },
+    {
+      "target": "nifty_history_page",
+      "url": "https://www.niftyindices.com/reports/historical-data",
+      "expected_kind": "html",
+      "checked_at_utc": "2026-11-20T10:11:53.434989+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "sample_bytes": 16384,
+      "sample_truncated": true,
+      "sample_sha256": "113db35f2e4dd28427e008eb926cd8cedf0d10988bfc71de68e855d6b8212c2f",
+      "classification": "landing_page_only_not_dataset"
+    },
+    {
+      "target": "rbi_data_page",
+      "url": "https://data.rbi.org.in",
+      "expected_kind": "html",
+      "checked_at_utc": "2026-11-20T10:11:53.540369+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "sample_bytes": 16384,
+      "sample_truncated": true,
+      "sample_sha256": "bd7d5e322209c6021d02b324dece9339b7058f894d753a1af32965456b2ec41a",
+      "classification": "landing_page_only_not_dataset"
+    },
+    {
+      "target": "rbi_publications_page",
+      "url": "https://www.rbi.org.in",
+      "expected_kind": "html",
+      "checked_at_utc": "2026-11-20T10:11:53.639878+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "sample_bytes": 16384,
+      "sample_truncated": true,
+      "sample_sha256": "9dea7dc0988699c22ab1a8207197125cfa39ca449738c3d580d03216deddcddb",
+      "classification": "landing_page_only_not_dataset"
+    },
+    {
+      "target": "nsdl_fpi_page",
+      "url": "https://www.fpi.nsdl.co.in",
+      "expected_kind": "html",
+      "checked_at_utc": "2026-11-20T10:11:53.854783+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "sample_bytes": 16384,
+      "sample_truncated": true,
+      "sample_sha256": "e9e549837681dcb102764111f24e64ffd7ba1fc81a55cb7ed1d26839896cf337",
+      "classification": "landing_page_only_not_dataset"
+    },
+    {
+      "target": "investing_10y_page",
+      "url": "https://www.investing.com/rates-bonds/india-10-year-bond-yield-historical-data",
+      "expected_kind": "html",
+      "checked_at_utc": "2026-11-20T10:11:53.904317+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "sample_bytes": 16384,
+      "sample_truncated": true,
+      "sample_sha256": "56aacddaf11133b80232d48d10831e0f2588a7fdfa658428441e14140cde9494",
+      "classification": "landing_page_only_not_dataset"
+    },
+    {
+      "target": "trendlyne_page",
+      "url": "https://trendlyne.com/mutual-fund/",
+      "expected_kind": "html",
+      "checked_at_utc": "2026-11-20T10:11:54.122430+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "sample_bytes": 16384,
+      "sample_truncated": true,
+      "sample_sha256": "bc09e8cf62fa705ca9542b7d7cd4015e6a5f9a7abf0e267b5d44746f64eefa78",
+      "classification": "landing_page_only_not_dataset"
+    },
+    {
+      "target": "fred_page",
+      "url": "https://fred.stlouisfed.org",
+      "expected_kind": "html",
+      "checked_at_utc": "2026-11-20T10:11:54.272448+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "sample_bytes": 16384,
+      "sample_truncated": true,
+      "sample_sha256": "3e37b3dba4bf295b27174ada10789977092ae20c7435b4d4efd203461afeae2c",
+      "classification": "landing_page_only_not_dataset"
+    },
+    {
+      "target": "yahoo_page",
+      "url": "https://finance.yahoo.com",
+      "expected_kind": "html",
+      "checked_at_utc": "2026-11-20T10:11:54.359140+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "sample_bytes": 16384,
+      "sample_truncated": true,
+      "sample_sha256": "4855a4083c0b9f548097131fc538965fbf5a9e2df8c272dddf92c7187fee5cd7",
+      "classification": "landing_page_only_not_dataset"
+    },
+    {
+      "target": "nse_terms",
+      "url": "https://www.nseindia.com/terms-of-use",
+      "expected_kind": "html",
+      "checked_at_utc": "2026-11-20T10:11:54.523078+00:00",
+      "http_status": 404,
+      "classification": "http_error"
+    },
+    {
+      "target": "bse_disclaimer",
+      "url": "https://www.bseindia.com/static/about/disclaimer.aspx",
+      "expected_kind": "html",
+      "checked_at_utc": "2026-11-20T10:11:54.535566+00:00",
+      "classification": "transport_error"
+    },
+    {
+      "target": "yahoo_terms",
+      "url": "https://legal.yahoo.com/us/en/yahoo/terms/otos/index.html",
+      "expected_kind": "html",
+      "checked_at_utc": "2026-11-20T10:11:54.728656+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "sample_bytes": 16384,
+      "sample_truncated": true,
+      "sample_sha256": "97debbca8df266cf5116bba3bc1bc344b07277e9077da68479311a0d7dd60110",
+      "classification": "landing_page_only_not_dataset"
+    },
+    {
+      "target": "fred_terms",
+      "url": "https://fred.stlouisfed.org/legal/",
+      "expected_kind": "html",
+      "checked_at_utc": "2026-11-20T10:11:54.932005+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "sample_bytes": 16384,
+      "sample_truncated": true,
+      "sample_sha256": "29cbed9e4ead2730acba97a082aaaa6c840d3e7fce2d4c62aa098847d7efd41f",
+      "classification": "landing_page_only_not_dataset"
+    }
+  ]
+}
