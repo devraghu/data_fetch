@@ -1,0 +1,16 @@
+# Manual read-only evidence; no payloads or secrets.
+name: Package C scoped AMFI evidence
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    if: github.repository == 'devraghu/data_fetch'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - run: python3 scripts/ing1_amfi_readonly_probe.py
