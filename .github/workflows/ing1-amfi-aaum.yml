@@ -1,0 +1,17 @@
+# Manual-only. Do not upload the runner-local response or schedule this probe.
+name: Package C structured AMFI AAUM
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  structured-aaum:
+    if: github.repository == 'devraghu/data_fetch' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Download and validate structured AAUM (summary only)
+        run: python3 scripts/ing1_amfi_aaum_runner.py --axis-quarter
