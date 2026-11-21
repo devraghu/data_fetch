@@ -70,7 +70,7 @@ def summarize_scheme_master(result: dict, payload: bytes | None) -> dict:
     code_columns = [
         index
         for index, name in enumerate(rows[0])
-        if name.strip().lower().replace("_", " ") in {"amfi code", "scheme code"}
+        if name.strip().lower().replace("_", " ") in {"amfi code", "scheme code", "code"}
     ]
     match_count = None
     if len(code_columns) == 1:
