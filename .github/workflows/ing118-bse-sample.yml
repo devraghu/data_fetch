@@ -1,0 +1,94 @@
+name: ING1.18 bounded BSE samples
+on:
+  workflow_dispatch:
+permissions: {}
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Read fixed official BSE prefixes and print summaries only
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import concurrent.futures
+          import csv
+          import hashlib
+          import io
+          import json
+          import re
+          import urllib.error
+          import urllib.request
+
+          CAP = 8192
+          BASE = "https://www.bseindia.com"
+          DAY = "2026-11-19"
+          TARGETS = (
+              ("trading", "/download/BhavCopy/Equity/"
+               "BhavCopy_BSE_CM_0_0_0_20261119_F_0000.CSV"),
+              ("delist_register", "/corporates/delist_comp"),
+              ("dated_notice", "/stockinfo/annpdfopen.aspx"
+               "?pname=8fae916c-2abb-45e7-a386-5a5c504fd250.pdf"),
+          )
+
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, *args, **kwargs):
+                  return None
+
+          def trading_shape(raw):
+              rows = list(csv.reader(io.StringIO(
+                  raw.decode("utf-8-sig").rsplit("\n", 1)[0]
+              ), strict=True))[:4]
+              required = {"TradDt", "Src", "FinInstrmId", "ISIN", "TckrSymb", "SctySrs"}
+              if not rows or not required <= {name.strip() for name in rows[0]}:
+                  return {"udiff_identity_header": False}
+              header = [name.strip() for name in rows[0]]
+              sampled = [dict(zip(header, values)) for values in rows[1:]
+                         if len(values) == len(header)]
+              return {
+                  "udiff_identity_header": True,
+                  "rows_matching_shape": len(sampled),
+                  "rows_matching_date": sum(row["TradDt"].strip() == DAY for row in sampled),
+                  "rows_with_numeric_instrument": sum(
+                      bool(re.fullmatch(r"[0-9]+", row["FinInstrmId"].strip()))
+                      for row in sampled
+                  ),
+              }
+
+          def probe(target):
+              name, path = target
+              summary = {"target": name}
+              try:
+                  req = urllib.request.Request(
+                      BASE + path,
+                      headers={"Range": f"bytes=0-{CAP-1}", "Accept-Encoding": "identity"},
+                  )
+                  with urllib.request.build_opener(NoRedirect()).open(req, timeout=10) as res:
+                      raw = res.read(CAP)
+                      summary.update(status=res.status, bytes=len(raw),
+                                     prefix_sha256=hashlib.sha256(raw).hexdigest(),
+                                     content_type=res.headers.get_content_type())
+              except urllib.error.HTTPError as exc:
+                  summary["status"] = exc.code
+                  exc.close()
+                  return summary
+              except (OSError, ValueError) as exc:
+                  summary["transport_error"] = type(exc).__name__
+                  return summary
+              if name == "trading":
+                  try:
+                      summary.update(trading_shape(raw))
+                  except (UnicodeError, csv.Error):
+                      summary["udiff_identity_header"] = False
+              elif name == "dated_notice":
+                  summary["pdf_signature"] = raw.startswith(b"%PDF-")
+              else:
+                  text = raw.lower()
+                  summary["html_prefix"] = b"<html" in text or b"<!doctype html" in text
+                  summary["delisting_label_seen"] = bool(re.search(rb"de[ -]?list", text))
+              return summary
+
+          with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
+              for result in pool.map(probe, TARGETS):
+                  print("BSE_SAMPLE " + json.dumps(result, sort_keys=True))
+          PY
