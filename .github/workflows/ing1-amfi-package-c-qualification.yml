@@ -1,0 +1,17 @@
+# Manual-only, summary-only; do not upload raw responses or enable a schedule.
+name: Package C scoped AMFI qualification
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qualify:
+    if: github.repository == 'devraghu/data_fetch' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Summarize bounded AMFI responses (no payload artifacts)
+        run: python3 scripts/ing1_amfi_package_c_qualification.py
